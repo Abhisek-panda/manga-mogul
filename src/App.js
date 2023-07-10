@@ -10,20 +10,64 @@ import PostDetails from "./Frontend/Pages/PostDetails/PostDetails";
 import Profile from "./Frontend/Pages/Profile/Profile";
 import OtherProfile from "./Frontend/Pages/OtherProfile/OtherProfile";
 import Bookmark from "./Frontend/Pages/Bookmark/Bookmark";
+import RequiresAuth from "./Frontend/Components/Auth/RequiresAuth";
 
 function App() {
   return (
     <div className="App">
       <div>
         <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/explore" element={<Explore />} />
+          <Route
+            path="/"
+            element={
+              <RequiresAuth>
+                <Home />
+              </RequiresAuth>
+            }
+          />
+          <Route
+            path="/explore"
+            element={
+              <RequiresAuth>
+                <Explore />
+              </RequiresAuth>
+            }
+          />
           <Route path="/login" element={<LogIn />} />
           <Route path="/signup" element={<SignUp />} />
-          <Route path="/post/:postId" element={<PostDetails />} />
-          <Route path="/profile" element={<Profile />} />
-          <Route path="/profile/:userHandler" element={<OtherProfile />} />
-          <Route path="/bookmark" element={<Bookmark />} />
+          <Route path="*" element={<LogIn />} />
+          <Route
+            path="/post/:postId"
+            element={
+              <RequiresAuth>
+                <PostDetails />
+              </RequiresAuth>
+            }
+          />
+          <Route
+            path="/profile"
+            element={
+              <RequiresAuth>
+                <Profile />
+              </RequiresAuth>
+            }
+          />
+          <Route
+            path="/profile/:userHandler"
+            element={
+              <RequiresAuth>
+                <OtherProfile />
+              </RequiresAuth>
+            }
+          />
+          <Route
+            path="/bookmark"
+            element={
+              <RequiresAuth>
+                <Bookmark />
+              </RequiresAuth>
+            }
+          />
           <Route path="/mock" element={<Mockman />} />
         </Routes>
       </div>

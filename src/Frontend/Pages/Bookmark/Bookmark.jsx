@@ -4,6 +4,7 @@ import Navbar from "../../Components/Navbar/Navbar";
 import Sidebar from "../../Components/Sidebar/Sidebar";
 import SinglePost from "../../Components/SinglePost/SinglePost";
 import { getAllPosts, getAllUsers } from "../../Services/DataServices";
+import HelmetTitle from "../../Components/Helmet/HelmetTitle";
 
 const Bookmark = () => {
   const {
@@ -26,6 +27,7 @@ const Bookmark = () => {
 
   return (
     <div>
+      <HelmetTitle title="Bookmark" />
       <div>
         <Navbar />
       </div>

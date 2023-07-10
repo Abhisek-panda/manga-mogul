@@ -17,8 +17,12 @@ const PostDetails = () => {
         <Navbar />
       </div>
       <div className="flex ">
-        <Sidebar />
-        <SinglePost post={postDetail} />
+        <div>
+          <Sidebar />
+        </div>
+        <div className="w-screen ">
+          <SinglePost post={postDetail} />
+        </div>
       </div>
     </div>
   );

@@ -3,6 +3,7 @@ import Navbar from "../../Components/Navbar/Navbar";
 import Sidebar from "../../Components/Sidebar/Sidebar";
 import { useData } from "../../..";
 import UserProfile from "../../Components/UserProfile/UserProfile";
+import HelmetTitle from "../../Components/Helmet/HelmetTitle";
 
 const OtherProfile = () => {
   const { userHandler: userHandlerID } = useParams();
@@ -13,6 +14,7 @@ const OtherProfile = () => {
   const userPosts = posts.filter((e) => e?.username === userProfile?.username);
   return (
     <div>
+      <HelmetTitle title={userProfile.userHandler} />
       <Navbar />
       <div className="flex gap-10">
         <div>

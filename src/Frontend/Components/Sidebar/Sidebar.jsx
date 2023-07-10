@@ -3,6 +3,7 @@ import { HiHome } from "react-icons/hi";
 import { MdOutlineExplore } from "react-icons/md";
 import { BsBookmarksFill } from "react-icons/bs";
 import { useData } from "../../..";
+import { AiOutlineLogout } from "react-icons/ai";
 
 const Sidebar = () => {
   const {
@@ -42,7 +43,12 @@ const Sidebar = () => {
           <BsBookmarksFill />
           BookMarks
         </Link>
-        <Link to="/login" onClick={handleLogOut } className="no-underline text-black font-semibold text-2xl flex items-center gap-2">
+        <Link
+          to="/login"
+          onClick={handleLogOut}
+          className="no-underline text-black font-semibold text-2xl flex items-center gap-2"
+        >
+          <AiOutlineLogout className="text-red-500" />
           Log Out
         </Link>
       </div>

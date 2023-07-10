@@ -84,34 +84,43 @@ const SinglePost = ({ post }) => {
           <img
             src={post?.file}
             alt=""
-            className="object-cover h-32 w-32"
+            className="object-cover h-48 w-48 rounded-xl my-4 cursor-pointer"
             onClick={() => handlePostDetails(post?._id)}
           />
         )}
       </div>
       <div className="flex gap-2 justify-around">
         <div className="flex items-center">
-          <LiaHeart onClick={handleLike} className="text-xl" />
+          <LiaHeart onClick={handleLike} className="text-xl cursor-pointer" />
           {post?.likes?.likeCount > 0 && post?.likes?.likeCount}
         </div>
         <div>
           {isBookmarked ? (
             <BsBookmarkFill
               onClick={handleBookmarkRemove}
-              className="text-xl"
+              className="text-xl cursor-pointer"
             />
           ) : (
-            <BsBookmark onClick={handleBookmark} className="text-xl" />
+            <BsBookmark
+              onClick={handleBookmark}
+              className="text-xl cursor-pointer"
+            />
           )}
         </div>
         <div className="flex items-center">
-          <BiComment className="text-xl" />
+          <BiComment
+            className="text-xl cursor-pointer"
+            onClick={() => handlePostDetails(post?._id)}
+          />
           {post?.comments &&
             post?.comments?.length > 0 &&
             post?.comments?.length}
         </div>
         <div>
-          <BiSolidShareAlt className="text-xl" onClick={handleShare} />
+          <BiSolidShareAlt
+            className="text-xl cursor-pointer"
+            onClick={handleShare}
+          />
         </div>
       </div>
 
@@ -128,7 +137,7 @@ const SinglePost = ({ post }) => {
                   <img
                     src={currUser?.profilePic}
                     alt=""
-                    className="w-8 h-8 rounded-3xl"
+                    className="w-10 h-10 object-cover rounded-3xl "
                   />
                   <p className="">@{currUser?.userHandler}</p>
                 </div>

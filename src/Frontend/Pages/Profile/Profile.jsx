@@ -1,4 +1,5 @@
 import { useData } from "../../..";
+import HelmetTitle from "../../Components/Helmet/HelmetTitle";
 import Navbar from "../../Components/Navbar/Navbar";
 import Sidebar from "../../Components/Sidebar/Sidebar";
 import UserProfile from "../../Components/UserProfile/UserProfile";
@@ -15,6 +16,7 @@ const Profile = () => {
 
   return (
     <div>
+      <HelmetTitle title="profile" />
       <Navbar />
       <div className="flex gap-10">
         <div>

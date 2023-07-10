@@ -327,7 +327,7 @@ export const posts = [
         {
           _id: 9,
           firstName: "Tom",
-          lastName: "Cat",
+          lastName: "Sanji",
           username: "sanji@onepiece.com",
           password: "Sanji123",
           userHandler: "Sanji123",
@@ -473,8 +473,8 @@ export const posts = [
       likedBy: [
         {
           _id: uuid(),
-          firstName: "Donald",
-          lastName: "Duck",
+          firstName: "Captain",
+          lastName: "Levi",
           username: "levi@gmail.com",
           password: "captainlevii",
           userHandler: "captainlevii",
@@ -490,8 +490,8 @@ export const posts = [
         },
         {
           _id: uuid(),
-          firstName: "Sponge",
-          lastName: "Bob",
+          firstName: "Naruto",
+          lastName: "Uzumaki",
           username: "naruto@gmail.com",
           password: "naruto123",
           userHandler: "naruto123",

@@ -2,6 +2,7 @@ import { useEffect } from "react";
 
 import { useData } from "../../..";
 import { getAllUsers, postFollowUser } from "../../Services/DataServices";
+import { useNavigate } from "react-router";
 
 const UserSidebar = () => {
   const {
@@ -10,6 +11,7 @@ const UserSidebar = () => {
   } = useData();
   const socialUser = JSON?.parse(localStorage.getItem("socialUser"));
   const token = localStorage?.getItem("token");
+  const navigate = useNavigate();
 
   const loggedUser = users?.find((e) => e?.username === socialUser?.username);
   const followingUser = loggedUser?.following?.map((e) => e.username);
@@ -23,6 +25,9 @@ const UserSidebar = () => {
     postFollowUser(id, token, dispatch);
   };
 
+  const handleUserLink = (userHandler) => {
+    navigate(`/profile/${userHandler}`);
+  };
   useEffect(() => {
     getAllUsers(dispatch);
     // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -42,7 +47,8 @@ const UserSidebar = () => {
               <img
                 src={profilePic}
                 alt=""
-                className="w-8 h-8 object-cover rounded-2xl"
+                className="w-10 h-10 object-cover rounded-3xl cursor-pointer"
+                onClick={() => handleUserLink(userHandler)}
               />
             </div>
             <div>
