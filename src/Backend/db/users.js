@@ -1,0 +1,136 @@
+import { v4 as uuid } from "uuid";
+import { formatDate } from "../utils/authUtils";
+/**
+ * User Database can be added here.
+ * You can add default users of your wish with different attributes
+ * */
+
+export const users = [
+  {
+    _id: uuid(),
+    firstName: "Abhisek",
+    lastName: "Panda",
+    username: "abhisekpanda789@gmail.com",
+    password: "123",
+    userHandler: "abhisek-panda",
+    profilePic:
+      "https://www.xtrafondos.com/wallpapers/vertical/kakashi-hatake-3605.jpg",
+    link: "https://arjunsinghportfolio.netlify.app",
+    bio: "An aspiring web developer1",
+    bookmarks: [],
+    followers: [],
+    following: [],
+    createdAt: formatDate(),
+    updatedAt: formatDate(),
+  },
+  {
+    _id: 2,
+    firstName: "Eren ",
+    lastName: "Yeager",
+    username: "erenyeager@gmail.com",
+    password: "eren123",
+    userHandler: "erenyeagerist",
+    profilePic:
+      "https://wallpapers.com/images/hd/eren-yeager-pfp-with-bloody-hand-c2zlw9o3puu0ihar.jpg",
+    link: "",
+    bio: "",
+    bookmarks: [],
+    followers: [],
+    following: [],
+    createdAt: formatDate(),
+    updatedAt: formatDate(),
+  },
+  {
+    _id: uuid(),
+    firstName: "Captain",
+    lastName: "Levi",
+    username: "levi@gmail.com",
+    password: "levi123",
+    userHandler: "captainlevii",
+    profilePic:
+      "https://superheroera.com/wp-content/uploads/2021/08/Attack-on-Titan-how-Strong-Is-Captain-Levi-c.jpg",
+    link: "",
+    bio: "",
+    bookmarks: [],
+    followers: [],
+    following: [],
+    createdAt: formatDate(),
+    updatedAt: formatDate(),
+  },
+
+  {
+    _id: uuid(),
+    firstName: "Naruto",
+    lastName: "Uzumaki",
+    username: "naruto@gmail.com",
+    password: "naruto123",
+    userHandler: "narutouzumaki",
+    profilePic:
+      "https://i.pinimg.com/originals/c0/ff/5b/c0ff5be1deb59a06e0d4a4c303e986cf.jpg",
+    bookmarks: [],
+    followers: [],
+    following: [],
+    createdAt: formatDate(),
+    updatedAt: formatDate(),
+  },
+  {
+    _id: uuid(),
+    firstName: "Roronoa",
+    lastName: "Zoro",
+    username: "zoro@gmail.com",
+    profilePic:
+      "https://editors.dexerto.com/wp-content/uploads/2023/04/20/one-piece-zoro-in-wano-arc.jpeg",
+    password: "zoro123",
+    userHandler: "zoro123",
+    bookmarks: [],
+    followers: [],
+    following: [],
+    createdAt: formatDate(),
+    updatedAt: formatDate(),
+  },
+  {
+    _id: uuid(),
+    firstName: "Guts",
+    lastName: "",
+    username: "guts@berserk.com",
+    password: "guts123",
+    profilePic:
+      "https://i1.sndcdn.com/artworks-AV3yT135aFYucjX4-O771hA-t500x500.jpg",
+    userHandler: "guts123",
+    bookmarks: [],
+    followers: [],
+    following: [],
+    createdAt: formatDate(),
+    updatedAt: formatDate(),
+  },
+  {
+    _id: uuid(),
+    firstName: "Mokey D. ",
+    lastName: "Luffy",
+    username: "luffy@onepiece.com",
+    password: "Luffy123",
+    userHandler: "luffytheexplorer",
+    bookmarks: [],
+    profilePic:
+      "https://i1.sndcdn.com/avatars-UidYWfW20bjki8Ub-GJKpBQ-t500x500.jpg",
+    followers: [],
+    following: [],
+    createdAt: formatDate(),
+    updatedAt: formatDate(),
+  },
+  {
+    _id: 9,
+    firstName: "Vinsmoke ",
+    lastName: "Sanji",
+    username: "sanji@onepiece.com",
+    password: "Sanji123",
+    userHandler: "Sanji123",
+    bookmarks: [],
+    followers: [],
+    profilePic:
+      "https://w0.peakpx.com/wallpaper/232/968/HD-wallpaper-sanji-anime-one-piece-manga.jpg",
+    following: [],
+    createdAt: formatDate(),
+    updatedAt: formatDate(),
+  },
+];
