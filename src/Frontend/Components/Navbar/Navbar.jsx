@@ -10,14 +10,14 @@ const Navbar = () => {
   const token = localStorage.getItem("token");
   const socialUser = JSON.parse(localStorage.getItem("socialUser"));
   const suggestUsers = searchValue?.filter(
-    (e) => e.username !== socialUser?.username
+    (e) => e?.username !== socialUser?.username
   );
   const handleFollow = (id) => {
     postFollowUser(id, token, dispatch);
   };
 
   return (
-    <div className="bg-blue-500 sticky top-0 p-2 mb-2">
+    <div className="bg-blue-500 sticky top-0 p-2 mb-2 z-10">
       <div className="flex justify-between items-center">
         <NavLink to="/" className="no-underline text-black text-3xl ">
           Manga Mogul

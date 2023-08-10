@@ -73,12 +73,12 @@ const Home = () => {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
   return (
-    <div>
+    <div className="h-screen">
       <HelmetTitle title="Home" />
       <div>
         <Navbar />
       </div>
-      <div className="flex flex-row justify-between h-90v overflow-hidden ">
+      <div className="flex flex-row justify-between">
         <div>
           <Sidebar />
         </div>
@@ -141,7 +141,7 @@ const Home = () => {
             </div>
           </div>
 
-          <div className="overflow-y-scroll h-90v">
+          <div className="">
             {sortedPost.map((post) => {
               return (
                 <div key={post._id}>

@@ -21,6 +21,8 @@ const UserSidebar = () => {
       !followingUser?.includes(e.username)
   );
 
+  console.log({ users, suggestUsers });
+
   const handleFollow = (id) => {
     postFollowUser(id, token, dispatch);
   };
@@ -46,7 +48,7 @@ const UserSidebar = () => {
             <div>
               <img
                 src={profilePic}
-                alt=""
+                alt="User Profile Pic"
                 className="w-10 h-10 object-cover rounded-3xl cursor-pointer"
                 onClick={() => handleUserLink(userHandler)}
               />
