@@ -59,7 +59,7 @@ const UserSidebar = () => {
             </div>
             <div>
               <button
-                className="p-1 text-sm bg-black border-none text-white rounded-sm"
+                className="p-1 text-sm bg-black border-none text-white rounded-sm hover:bg-blue-700  cursor-pointer"
                 onClick={() => handleFollow(_id)}
               >
                 Follow

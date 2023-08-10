@@ -78,7 +78,7 @@ const Home = () => {
       <div>
         <Navbar />
       </div>
-      <div className="flex flex-row justify-between">
+      <div className="flex flex-row justify-between h-90v overflow-hidden ">
         <div>
           <Sidebar />
         </div>
@@ -107,50 +107,53 @@ const Home = () => {
                 </select>
               </div>
             </div>
-
-            {showNewPost === true && (
-              <div>
-                <label htmlFor="">
-                  <textarea
-                    name=""
-                    id=""
-                    cols="30"
-                    rows="10"
-                    onChange={(e) =>
-                      setNewPost({ ...newPost, content: e.target.value })
-                    }
-                    placeholder="Type to Add Post"
-                  ></textarea>
-                </label>
-                <div className="flex justify-evenly">
-                  <button
-                    onClick={() => setShowNewPost(false)}
-                    className="text-lg rounded-lg border-none p-1 bg-blue-500 text-white cursor-pointer hover:bg-blue-900"
-                  >
-                    Close
-                  </button>
-                  <button
-                    onClick={handleCreatePost}
-                    className="text-lg rounded-lg border-none p-1 bg-blue-500 text-white cursor-pointer hover:bg-blue-900"
-                  >
-                    Add Post
-                  </button>
+            <div>
+              {showNewPost === true && (
+                <div className="h-90v overflow-y-scroll">
+                  <label htmlFor="">
+                    <textarea
+                      name=""
+                      id=""
+                      cols="30"
+                      rows="10"
+                      onChange={(e) =>
+                        setNewPost({ ...newPost, content: e.target.value })
+                      }
+                      placeholder="Type to Add Post"
+                    ></textarea>
+                  </label>
+                  <div className="flex justify-evenly">
+                    <button
+                      onClick={() => setShowNewPost(false)}
+                      className="text-lg rounded-lg border-none p-1 bg-blue-500 text-white cursor-pointer hover:bg-blue-900"
+                    >
+                      Close
+                    </button>
+                    <button
+                      onClick={handleCreatePost}
+                      className="text-lg rounded-lg border-none p-1 bg-blue-500 text-white cursor-pointer hover:bg-blue-900"
+                    >
+                      Add Post
+                    </button>
+                  </div>
                 </div>
-              </div>
-            )}
+              )}
+            </div>
           </div>
 
-          {sortedPost.map((post) => {
-            return (
-              <div key={post._id}>
-                <SinglePost post={post} />
-              </div>
-            );
-          })}
+          <div className="overflow-y-scroll h-90v">
+            {sortedPost.map((post) => {
+              return (
+                <div key={post._id}>
+                  <SinglePost post={post} />
+                </div>
+              );
+            })}
+          </div>
         </div>
-        <div className="w-96">
+        <aside className="w-96">
           <UserSidebar />
-        </div>
+        </aside>
       </div>
     </div>
   );

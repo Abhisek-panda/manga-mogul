@@ -54,7 +54,7 @@ const SinglePost = ({ post }) => {
 
   const handleShare = () => {
     navigator.clipboard.writeText(
-      `https://manga-mogul.vercel.com/post/${post?.id}`
+      `https://manga-mogul.vercel.com/post/${post?._id}`
     );
   };
 
@@ -65,7 +65,7 @@ const SinglePost = ({ post }) => {
           <img
             src={post?.profilePic}
             alt=""
-            className="h-12 w-12 object-cover rounded-3xl"
+            className="h-10 w-10 object-cover rounded-full"
             onClick={() => handleUserLink(post?.userHandler)}
           />
         </div>

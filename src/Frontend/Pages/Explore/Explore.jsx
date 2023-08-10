@@ -24,7 +24,7 @@ const Explore = () => {
         <div>
           <Sidebar />
         </div>
-        <div>
+        <div className="h-90v overflow-y-scroll">
           {state?.posts?.map((post) => {
             return (
               <div key={post._id}>

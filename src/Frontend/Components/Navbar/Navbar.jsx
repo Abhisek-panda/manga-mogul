@@ -16,12 +16,10 @@ const Navbar = () => {
     postFollowUser(id, token, dispatch);
   };
 
-  console.log({ showModal });
-
   return (
-    <div className="bg-blue-500 sticky top-0 h-10v">
+    <div className="bg-blue-500 sticky top-0 p-2 mb-2">
       <div className="flex justify-between items-center">
-        <NavLink to="/" className="no-underline text-black text-4xl ">
+        <NavLink to="/" className="no-underline text-black text-3xl ">
           Manga Mogul
         </NavLink>
         <MdOutlineSearch
