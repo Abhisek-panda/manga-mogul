@@ -84,15 +84,20 @@ const SinglePost = ({ post }) => {
           <img
             src={post?.file}
             alt=""
-            className="object-cover h-48 w-48 rounded-xl my-4 cursor-pointer"
+            className="object-cover h-56 w-80 rounded-xl my-4 cursor-pointer"
             onClick={() => handlePostDetails(post?._id)}
           />
         )}
       </div>
       <div className="flex gap-2 justify-around">
         <div className="flex items-center">
-          <LiaHeart onClick={handleLike} className="text-xl cursor-pointer" />
-          {post?.likes?.likeCount > 0 && post?.likes?.likeCount}
+          <BiComment
+            className="text-xl cursor-pointer"
+            onClick={() => handlePostDetails(post?._id)}
+          />
+          {post?.comments &&
+            post?.comments?.length > 0 &&
+            post?.comments?.length}
         </div>
         <div>
           {isBookmarked ? (
@@ -107,14 +112,10 @@ const SinglePost = ({ post }) => {
             />
           )}
         </div>
+
         <div className="flex items-center">
-          <BiComment
-            className="text-xl cursor-pointer"
-            onClick={() => handlePostDetails(post?._id)}
-          />
-          {post?.comments &&
-            post?.comments?.length > 0 &&
-            post?.comments?.length}
+          <LiaHeart onClick={handleLike} className="text-xl cursor-pointer" />
+          {post?.likes?.likeCount > 0 && post?.likes?.likeCount}
         </div>
         <div>
           <BiSolidShareAlt

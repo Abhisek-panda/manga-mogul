@@ -12,6 +12,7 @@ module.exports = {
       height: {
         "90v": "90vh",
         "10v": "10vh",
+        "75v": "75vh",
       },
       boxShadow: {
         d1: "rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px",

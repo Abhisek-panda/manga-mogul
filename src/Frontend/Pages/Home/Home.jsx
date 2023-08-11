@@ -73,7 +73,7 @@ const Home = () => {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
   return (
-    <div className="h-screen">
+    <div>
       <HelmetTitle title="Home" />
       <div>
         <Navbar />
@@ -82,8 +82,8 @@ const Home = () => {
         <div>
           <Sidebar />
         </div>
-        <div>
-          <div className=" border-2 border-solid py-2 rounded-sm border-black mb-8 mt-2">
+        <div className="h-90v overflow-y-scroll">
+          <div className=" border-2 border-solid py-2 rounded-sm border-black mb-8 mt-2 ">
             <div className="flex justify-around items-center ">
               <div>
                 <button
@@ -107,9 +107,9 @@ const Home = () => {
                 </select>
               </div>
             </div>
-            <div>
+            <div className="h-max">
               {showNewPost === true && (
-                <div className="h-90v overflow-y-scroll">
+                <div>
                   <label htmlFor="">
                     <textarea
                       name=""
