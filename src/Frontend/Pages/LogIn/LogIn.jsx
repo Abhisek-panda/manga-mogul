@@ -18,10 +18,10 @@ const LogIn = () => {
       logInUser(logInDetails);
       navigate("/");
     } else {
+      navigate("/login")
     }
   };
 
-  console.log(localStorage.getItem("socialUserName"));
   const handleGuestLogIn = () => {
     const creds = { username: "abhisekpanda789@gmail.com", password: "123" };
     logInUser(creds, setIsLoggedIn);

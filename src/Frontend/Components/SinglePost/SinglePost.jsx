@@ -1,5 +1,5 @@
 import { BsBookmark, BsBookmarkFill } from "react-icons/bs";
-import { LiaHeart } from "react-icons/lia";
+import { LiaHeart, LiaHeartSolid } from "react-icons/lia";
 import { BiComment, BiSolidShareAlt } from "react-icons/bi";
 import { useNavigate } from "react-router";
 import { useData } from "../../..";
@@ -17,12 +17,20 @@ const SinglePost = ({ post }) => {
     setShowComment,
     dispatch,
     isBookmarked,
+    likedPost,
+    bookMarkedPost,
   } = useData();
   const socialUser = JSON.parse(localStorage.getItem("socialUser"));
   const token = localStorage.getItem("token");
 
+  // console....
+
   const localDate = new Date(post?.createdAt).toLocaleDateString();
   const localTime = new Date(post?.createdAt).toLocaleTimeString();
+
+  const likePostByUser = likedPost(post, socialUser);
+  const bookMarkedByUser = bookMarkedPost(post, socialUser);
+  console.log({ bookMarkedByUser });
 
   const handlePostDetails = (_id) => {
     navigate(`/post/${_id}`);
@@ -40,12 +48,10 @@ const SinglePost = ({ post }) => {
 
   const handleBookmark = () => {
     addBookmark(dispatch, token, post._id, socialUser.username);
-    // setIsBookmarked(true);
   };
 
   const handleBookmarkRemove = () => {
     removeBookmark(dispatch, token, post._id, socialUser.username);
-    // setIsBookmarked(false);
   };
 
   const handleLike = () => {
@@ -99,6 +105,7 @@ const SinglePost = ({ post }) => {
             post?.comments?.length > 0 &&
             post?.comments?.length}
         </div>
+
         <div>
           {isBookmarked ? (
             <BsBookmarkFill
@@ -114,7 +121,15 @@ const SinglePost = ({ post }) => {
         </div>
 
         <div className="flex items-center">
-          <LiaHeart onClick={handleLike} className="text-xl cursor-pointer" />
+          {likePostByUser ? (
+            <LiaHeartSolid className="text-xl cursor-pointer text-red-700" />
+          ) : (
+            <LiaHeart
+              onClick={handleLike}
+              className="text-xl cursor-pointer hover:text-red-700 "
+            />
+          )}
+
           {post?.likes?.likeCount > 0 && post?.likes?.likeCount}
         </div>
         <div>

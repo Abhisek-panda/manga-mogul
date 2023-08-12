@@ -42,7 +42,7 @@ export const dataReducer = (state, action) => {
       return {
         ...state,
         users: state?.users?.map((e) =>
-          e.username === action.payload.username
+          e?.username === action?.payload.username
             ? { ...e, bookmarks: action.payload.bookmarks }
             : e
         ),

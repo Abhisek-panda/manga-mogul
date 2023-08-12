@@ -135,7 +135,7 @@ export const getLike = async (dispatch, token, _id) => {
       }
     );
     if (status === 200 || status === 201) {
-      console.log(posts, "postttt");
+      console.log("api Posts Like", posts);
       dispatch({ type: "LIKE_DATA", payload: posts });
     }
   } catch (error) {

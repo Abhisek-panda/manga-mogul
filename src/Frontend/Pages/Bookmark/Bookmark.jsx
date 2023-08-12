@@ -11,12 +11,12 @@ const Bookmark = () => {
     state: { users, posts },
     dispatch,
   } = useData();
-  const user = JSON.parse(localStorage.getItem("socialUser"));
+  const socialUser = JSON.parse(localStorage.getItem("socialUser"));
 
-  const loggedUser = users?.find((e) => e?.username === user?.username);
+  const loggedUser = users?.find((e) => e?.username === socialUser?.username);
 
   const bookmarks = posts?.filter((e) =>
-    loggedUser?.bookmarks?.some((d) => d._id === e._id)
+    loggedUser?.bookmarks?.find((d) => d?._id.toString() === e?._id.toString())
   );
 
   console.log({ loggedUser });

@@ -11,8 +11,8 @@ export const logInUser = async (creds, setIsLoggedIn) => {
     if (status === 200 || status === 201) {
       localStorage.setItem("token", JSON.stringify(encodedToken));
       localStorage.setItem("socialUser", JSON.stringify(foundUser));
-
       setIsLoggedIn(true);
+      console.log({ foundUser });
     }
   } catch (error) {
     console.error(error);

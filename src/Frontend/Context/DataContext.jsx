@@ -14,6 +14,21 @@ export const DataProvider = ({ children }) => {
     e.username.toLowerCase().includes(search.toLowerCase())
   );
 
+  const likedPost = (post, socialUser) => {
+    const data = post?.likes?.likedBy?.find(
+      (user) => user?._id?.toString() === socialUser?._id?.toString()
+    );
+    return data;
+  };
+
+  const bookMarkedPost = (post, socialUser) => {
+    const book = socialUser?.bookmarks?.find(
+      (b) => b?._id.toString() === post?._id.toString()
+    );
+    console.log({ book });
+    return book;
+  };
+
   return (
     <DataContext.Provider
       value={{
@@ -28,6 +43,8 @@ export const DataProvider = ({ children }) => {
         setSearch,
         showModal,
         setShowModal,
+        likedPost,
+        bookMarkedPost,
       }}
     >
       {children}

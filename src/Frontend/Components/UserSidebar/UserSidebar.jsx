@@ -21,8 +21,6 @@ const UserSidebar = () => {
       !followingUser?.includes(e.username)
   );
 
-  console.log({ users, suggestUsers });
-
   const handleFollow = (id) => {
     postFollowUser(id, token, dispatch);
   };
