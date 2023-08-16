@@ -23,9 +23,9 @@ const Home = () => {
     userHandler: socialUser?.userHandler,
   });
 
-  const token = localStorage.getItem("token");
+  const token = localStorage?.getItem("token");
 
-  const loggedInUser = users.find((e) => e?.username === socialUser?.username);
+  const loggedInUser = users?.find((e) => e?.username === socialUser?.username);
 
   const loggedUserPosts = posts?.filter(
     (e) => e?.username === loggedInUser?.username
@@ -87,7 +87,7 @@ const Home = () => {
             <div className="flex justify-around items-center ">
               <div>
                 <button
-                  className="text-lg rounded-lg border-none p-2 bg-blue-500 text-white cursor-pointer hover:bg-blue-900"
+                  className="text-lg rounded-md border-none p-2 bg-blue-500 text-white cursor-pointer hover:bg-blue-900"
                   onClick={handleNewPost}
                 >
                   Add Post
@@ -114,24 +114,23 @@ const Home = () => {
                     <textarea
                       name=""
                       id=""
-                      cols="30"
-                      rows="10"
                       onChange={(e) =>
                         setNewPost({ ...newPost, content: e.target.value })
                       }
                       placeholder="Type to Add Post"
+                      className="w-full h-16 font-oxygen"
                     ></textarea>
                   </label>
                   <div className="flex justify-evenly">
                     <button
                       onClick={() => setShowNewPost(false)}
-                      className="text-lg rounded-lg border-none p-1 bg-blue-500 text-white cursor-pointer hover:bg-blue-900"
+                      className="text-lg rounded-sm border-none p-1 bg-blue-500 text-white cursor-pointer hover:bg-red-700"
                     >
                       Close
                     </button>
                     <button
                       onClick={handleCreatePost}
-                      className="text-lg rounded-lg border-none p-1 bg-blue-500 text-white cursor-pointer hover:bg-blue-900"
+                      className="text-lg rounded-sm border-none p-1 bg-blue-500 text-white cursor-pointer hover:bg-blue-900"
                     >
                       Add Post
                     </button>

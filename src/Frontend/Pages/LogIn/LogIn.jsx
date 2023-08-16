@@ -18,23 +18,30 @@ const LogIn = () => {
       logInUser(logInDetails);
       navigate("/");
     } else {
-      navigate("/login")
+      navigate("/login");
     }
   };
 
   const handleGuestLogIn = () => {
     const creds = { username: "abhisekpanda789@gmail.com", password: "123" };
     logInUser(creds, setIsLoggedIn);
-    navigate("/");
     setLogInDetails(creds);
+    navigate("/");
   };
 
   return (
-    <div className="flex justify-center h-screen border-2 border-solid border-black">
+    <div className="flex h-screen ">
       <HelmetTitle title="Log In" />
-      <div className="border-2 border-solid border-black flex flex-col  gap-5 m-auto p-4 rounded items-center">
-        <label htmlFor="" className="flex justify-between gap-3 ">
-          <span>Email:</span>
+      <div className="w-3/4 border-2 border-solid border-black">
+        <img
+          src="https://www.pixelstalk.net/wp-content/uploads/images6/4K-Anime-Wallpaper-Desktop-1.jpg"
+          alt=""
+          className="w-full h-full object-cover"
+        />
+      </div>
+      <div className="border-2 border-solid border-black flex flex-col p-4  gap-5 m-auto rounded-lg items-center">
+        <div className="flex flex-col items-start">
+          <label htmlFor="">Email: </label>
           <input
             type="text"
             className="w-64"
@@ -42,9 +49,9 @@ const LogIn = () => {
               setLogInDetails({ ...logInDetails, username: e.target.value })
             }
           />
-        </label>
-        <label htmlFor="" className="flex justify-between gap-3 ">
-          <span>Password:</span>
+        </div>
+        <div className="flex flex-col items-start ">
+          <label htmlFor="">Password:</label>
           <input
             type="password"
             className="w-64"
@@ -52,13 +59,31 @@ const LogIn = () => {
               setLogInDetails({ ...logInDetails, password: e.target.value })
             }
           />
-        </label>
-        <div>
-          <button onClick={handleLogIn}>Log In</button>
-          <button onClick={handleGuestLogIn}>Guest Login</button>
+        </div>
+        <div className="flex gap-5">
+          <button
+            className="p-1 text-sm bg-black border-none text-white rounded-sm hover:bg-blue-700  cursor-pointer"
+            onClick={handleLogIn}
+          >
+            Log In
+          </button>
+          <button
+            className="p-1 text-sm bg-black border-none text-white rounded-sm hover:bg-red-700  cursor-pointer"
+            onClick={handleGuestLogIn}
+          >
+            Guest Login
+          </button>
         </div>
         <div>
-          <Link to="/signup">Create New Account</Link>
+          <p className="text-lg ">
+            Don't have an Account?{" "}
+            <Link
+              to="/signup"
+              className="font-bold no-underline text-blue-700 hover:text-red-700"
+            >
+              SignUp
+            </Link>
+          </p>
         </div>
       </div>
     </div>

@@ -10,7 +10,7 @@ export const DataProvider = ({ children }) => {
   const [search, setSearch] = useState("");
   const [showModal, setShowModal] = useState(false);
 
-  const searchValue = state.users.filter((e) =>
+  const searchValue = state?.users?.filter((e) =>
     e.username.toLowerCase().includes(search.toLowerCase())
   );
 
@@ -25,7 +25,6 @@ export const DataProvider = ({ children }) => {
     const book = socialUser?.bookmarks?.find(
       (b) => b?._id.toString() === post?._id.toString()
     );
-    console.log({ book });
     return book;
   };
 

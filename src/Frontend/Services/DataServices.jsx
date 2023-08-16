@@ -66,11 +66,39 @@ export const postFollowUser = async (id, token, dispatch) => {
       }
     );
     if (status === 200 || status === 201) {
-      dispatch({ type: "NEW_FOLLOWER", payload: { followUser, user } });
+      console.log(followUser);
+      dispatch({ type: "FOLLOW_MANAGEMENT", payload: { user } });
+      dispatch({ type: "NEW_FOLLOWER", payload: { followUser } });
     }
     console.log(user);
   } catch (error) {
     console.error(error);
+  }
+};
+
+export const postUnFollowUser = async (id, token, dispatch) => {
+  try {
+    const {
+      status,
+      data: { user, followUser },
+    } = await axios.post(
+      `/api/users/unfollow/${id}`,
+      {},
+      {
+        headers: {
+          authorization: token,
+        },
+      }
+    );
+    if (status === 200 || status === 201) {
+      dispatch({ type: "FOLLOW_MANAGEMENT", payload: { user: user } });
+      dispatch({
+        type: "REMOVE_FOLLOWER",
+        payload: { unfollowedUser: followUser },
+      });
+    }
+  } catch (error) {
+    console.log(error);
   }
 };
 
@@ -159,6 +187,70 @@ export const getDislike = async (dispatch, token, _id) => {
     );
     if (status === 200 || status === 201) {
       dispatch({ type: "LIKE_DATA", payload: posts });
+    }
+  } catch (error) {
+    console.log(error);
+  }
+};
+
+export const deletePost = async (dispatch, token, _id) => {
+  try {
+    const {
+      status,
+      data: { posts },
+    } = await axios.delete(`/api/posts/${_id}`, {
+      headers: {
+        authorization: token,
+      },
+    });
+    if (status === 200 || status === 201) {
+      dispatch({ type: "POST_MANAGEMENT", payload: posts });
+    }
+  } catch (error) {
+    console.log(error);
+  }
+};
+
+export const editPostApi = async (_id, updatedPost, token, dispatch) => {
+  try {
+    const {
+      status,
+      data: { posts },
+    } = await axios.post(
+      `/api/posts/edit/${_id}`,
+      { postData: updatedPost },
+      {
+        headers: {
+          authorization: token,
+        },
+      }
+    );
+    if (status === 200 || status === 201) {
+      dispatch({ type: "POST_MANAGEMENT", payload: posts });
+    }
+  } catch (error) {
+    console.log(error);
+  }
+};
+
+export const profileUpdate = async (userData, token, dispatch) => {
+  try {
+    const {
+      status,
+      data: { user },
+    } = await axios.post(
+      "/api/users/edit",
+      { userData },
+      {
+        headers: {
+          authorization: token,
+        },
+      }
+    );
+    console.log(user);
+    if (status === 200 || status === 201) {
+      dispatch({ type: "USER_PROFILE_UPDATE", payload: user });
+      console.log({ user });
     }
   } catch (error) {
     console.log(error);

@@ -18,7 +18,7 @@ const UserSidebar = () => {
   const suggestUsers = users?.filter(
     (e) =>
       e.username !== socialUser?.username &&
-      !followingUser?.includes(e.username)
+      !followingUser?.includes(e?.username)
   );
 
   const handleFollow = (id) => {

@@ -16,7 +16,7 @@ const Profile = () => {
 
   return (
     <div>
-      <HelmetTitle title="profile" />
+      <HelmetTitle title="Profile" />
       <Navbar />
       <div className="flex gap-10">
         <div>

@@ -20,25 +20,25 @@ const Sidebar = () => {
   };
 
   return (
-    <div className=" flex justify-between flex-col h-90v">
+    <div className=" flex justify-between flex-col h-90v mx-2">
       <div className="flex flex-col items-start gap-4">
         <Link
           to="/"
-          className="no-underline text-black font-semibold text-2xl flex items-center gap-2"
+          className="no-underline text-black font-semibold text-2xl flex items-center gap-2 hover:text-blue-700"
         >
           <HiHome />
           Home
         </Link>
         <Link
           to="/explore"
-          className="no-underline text-black font-semibold text-2xl flex items-center gap-2"
+          className="no-underline text-black font-semibold text-2xl flex items-center gap-2 hover:text-blue-700"
         >
           <MdOutlineExplore />
           Explore
         </Link>
         <Link
           to="/bookmark"
-          className="no-underline text-black font-semibold text-2xl flex items-center gap-2"
+          className="no-underline text-black font-semibold text-2xl flex items-center gap-2 hover:text-blue-700"
         >
           <BsBookmarksFill />
           BookMarks
@@ -46,22 +46,22 @@ const Sidebar = () => {
         <Link
           to="/login"
           onClick={handleLogOut}
-          className="no-underline text-black font-semibold text-2xl flex items-center gap-2"
+          className="no-underline font-semibold text-2xl flex items-center gap-2 text-red-700"
         >
-          <AiOutlineLogout className="text-red-500" />
+          <AiOutlineLogout className="text-red-700" />
           Log Out
         </Link>
       </div>
 
       <div
-        className="flex items-center shadow-d1 hover:shadow-d2 cursor-pointer"
+        className="flex items-center shadow-d1 hover:shadow-d2 cursor-pointer hover:bg-blue-700 rounded-md bg-slate-500 p-2 text-white"
         onClick={() => navigate("/profile")}
       >
         <div>
           <img
             src={LoggedInUser?.profilePic}
             alt="profile"
-            className="h-10 w-10 rounded-3xl object-cover"
+            className="h-8 w-8 rounded-3xl object-cover"
           />
         </div>
         <div>
