@@ -15,7 +15,7 @@ export const users = [
     userHandler: "abhisek-panda",
     profilePic:
       "https://www.xtrafondos.com/wallpapers/vertical/kakashi-hatake-3605.jpg",
-    link: "https://arjunsinghportfolio.netlify.app",
+    link: "https://github.com/Abhisek-panda",
     bio: "An aspiring web developer1",
     bookmarks: [],
     followers: [],
